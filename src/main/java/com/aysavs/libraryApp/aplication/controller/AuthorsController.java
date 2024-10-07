@@ -1,11 +1,12 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.AuthorService;
+import com.aysavs.libraryApp.aplication.service.request.CreateAuthorRequest;
 import com.aysavs.libraryApp.domain.aggragate.author.Author;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +22,9 @@ public class AuthorsController {
         return authorService.getAll(); // AuthorService üzerinden yazarları al
     }
 
-
+    @PostMapping("/create")
+    public ResponseEntity<Long> create(@Valid @RequestBody CreateAuthorRequest createAuthorRequest) {
+        Long createdAuthorId = authorService.create(createAuthorRequest);
+        return ResponseEntity.ok(createdAuthorId);
+    }
 }
