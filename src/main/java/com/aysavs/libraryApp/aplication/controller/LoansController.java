@@ -22,6 +22,8 @@ public class LoansController {
     public List<Loan> getAll() {
         return loanService.getAll();
     }
+
+    //TODO: caner.yesildag: action should be loan for this flow
     @PostMapping("/create")
     public ResponseEntity<Long> create(@Valid @RequestBody CreateLoanRequest createLoanRequest ) {
         Long createdLoanId = loanService.create(createLoanRequest);

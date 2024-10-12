@@ -12,21 +12,23 @@ import java.util.*;
 @Setter
 @NoArgsConstructor
 @Entity
-
 public class Book {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="titile")
-    private String titile;
+    @Column(name="title")
+    private String title;
 
     @Column(name="type")
     private String type;
 
     @Column (name="language")
     private String language;
+
+    @Column (name="bookStatus")
+    private BookStatus bookStatus;
 
     @Column (name="editionNumber")
     private int editionNumber;
