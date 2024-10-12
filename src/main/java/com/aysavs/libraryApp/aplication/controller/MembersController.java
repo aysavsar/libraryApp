@@ -1,11 +1,13 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.MemberService;
+import com.aysavs.libraryApp.aplication.service.request.CreateAuthorRequest;
+import com.aysavs.libraryApp.aplication.service.request.CreateMemberRequest;
 import com.aysavs.libraryApp.domain.aggragate.member.Member;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/members")
 public class MembersController {
+
     private  final MemberService memberService;
 
     @GetMapping
@@ -21,4 +24,9 @@ public class MembersController {
         return memberService.getAll(); //
     }
 
+    @PostMapping("/create")
+    public ResponseEntity<Long> create(@Valid @RequestBody CreateMemberRequest createMemberRequest) {
+        Long createdMemberId = memberService.create(createMemberRequest);
+        return ResponseEntity.ok(createdMemberId);
+    }
 }

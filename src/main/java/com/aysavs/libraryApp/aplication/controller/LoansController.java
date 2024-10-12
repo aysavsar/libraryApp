@@ -1,11 +1,13 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.LoanService;
+import com.aysavs.libraryApp.aplication.service.request.CreateLoanRequest;
+import com.aysavs.libraryApp.aplication.service.request.CreateMemberRequest;
 import com.aysavs.libraryApp.domain.aggragate.loan.Loan;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,6 +20,11 @@ public class LoansController {
 
     @GetMapping
     public List<Loan> getAll() {
-        return loanService.getAll(); // AuthorService üzerinden yazarları al
+        return loanService.getAll();
+    }
+    @PostMapping("/create")
+    public ResponseEntity<Long> create(@Valid @RequestBody CreateLoanRequest createLoanRequest ) {
+        Long createdLoanId = loanService.create(createLoanRequest);
+        return ResponseEntity.ok(createdLoanId);
     }
 }

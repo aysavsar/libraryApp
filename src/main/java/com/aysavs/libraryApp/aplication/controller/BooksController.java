@@ -1,11 +1,14 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.BookService;
+import com.aysavs.libraryApp.aplication.service.request.CreateBookRequest;
 import com.aysavs.libraryApp.domain.aggragate.book.Book;
+import jakarta.validation.Valid;
+import jakarta.websocket.Endpoint;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.coyote.Response;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +21,12 @@ public class BooksController {
 
     @GetMapping
     public List<Book> getAll() {
+        return bookService.getAll();
+    }
 
-        return bookService.getAll(); // AuthorService üzerinden yazarları al
+    @PostMapping("/create")
+    public ResponseEntity<Long> create(@Valid @RequestBody CreateBookRequest createBookRequest){
+        Long createdBookId=bookService.create(createBookRequest);
+        return ResponseEntity.ok(createdBookId);
     }
 }
