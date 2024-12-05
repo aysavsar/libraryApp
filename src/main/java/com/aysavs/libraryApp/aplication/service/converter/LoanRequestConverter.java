@@ -13,7 +13,7 @@ public class LoanRequestConverter {
         loan.setMemberId(createLoanRequest.getMemberId());
         loan.setLoanDate(createLoanRequest.getLoanDate());
         loan.setLoanStatus(createLoanRequest.getLoanStatus());
-        loan.setRefundDate(createLoanRequest.getRefundDate());
+        loan.setReturnDate(createLoanRequest.getReturnDate());
         loan.setRemainingRight(createLoanRequest.getRemainingRight());
         loan.setLoanedBookCount(createLoanRequest.getLoanedBookCount());
         loan.setForbidden(createLoanRequest.isForbidden());

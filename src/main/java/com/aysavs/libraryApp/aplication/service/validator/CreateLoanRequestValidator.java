@@ -16,7 +16,7 @@ public class CreateLoanRequestValidator {
         validateRemainingRight(createLoanRequest.getRemainingRight());
         validateLoanedBookCount(createLoanRequest.getLoanedBookCount());
         validateLoanDate(createLoanRequest.getLoanDate());
-        validateRefundDate(createLoanRequest.getRefundDate());
+        validateRefundDate(createLoanRequest.getReturnDate());
     }
 
     private void validateBookId(long bookId) {
