@@ -2,7 +2,7 @@ package com.aysavs.libraryApp.aplication.service;
 
 
 import com.aysavs.libraryApp.aplication.service.converter.BookRequestConverter;
-import com.aysavs.libraryApp.aplication.service.request.CreateBookRequest;
+import com.aysavs.libraryApp.aplication.service.request.book.CreateBookRequest;
 import com.aysavs.libraryApp.aplication.service.request.book.UpdateBookRequest;
 import com.aysavs.libraryApp.aplication.service.validator.CreateBookRequestValidator;
 import com.aysavs.libraryApp.domain.aggragate.book.Book;
@@ -20,7 +20,7 @@ public class BookService {
 
     private final BookRepository bookRepository;
     private final CreateBookRequestValidator createBookRequestValidator;
-    private  final BookRequestConverter bookRequestConverter;
+    private final BookRequestConverter bookRequestConverter;
 
 
     public BookService(BookRepository bookRepository,
@@ -28,20 +28,20 @@ public class BookService {
                        BookRequestConverter bookRequestConverter) {
 
         this.bookRepository = bookRepository;
-        this.createBookRequestValidator=createBookRequestValidator;
-        this.bookRequestConverter =bookRequestConverter;
+        this.createBookRequestValidator = createBookRequestValidator;
+        this.bookRequestConverter = bookRequestConverter;
     }
 
     public List<Book> getAll() {
         return bookRepository.findAll(); // BookRepository üzerinden kitapları al
     }
 
-    public Long create(CreateBookRequest createBookRequest){
+    public Long create(CreateBookRequest createBookRequest) {
         createBookRequestValidator.validate(createBookRequest);
-        Book book=bookRequestConverter.convert(createBookRequest);
-        Book savedBook =bookRepository.save(book);
+        Book book = bookRequestConverter.convert(createBookRequest);
+        Book savedBook = bookRepository.save(book);
 
-        return(long)savedBook.getId();
+        return (long) savedBook.getId();
     }
 
     public long update(UpdateBookRequest updateBookRequest) {

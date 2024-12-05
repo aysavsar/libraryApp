@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.converter;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateBookRequest;
+import com.aysavs.libraryApp.aplication.service.request.book.CreateBookRequest;
 import com.aysavs.libraryApp.domain.aggragate.book.Book;
 import com.aysavs.libraryApp.domain.aggragate.book.BookStatus;
 import org.springframework.stereotype.Component;

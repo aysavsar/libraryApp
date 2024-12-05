@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.converter;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateMemberRequest;
+import com.aysavs.libraryApp.aplication.service.request.member.CreateMemberRequest;
 import com.aysavs.libraryApp.domain.aggragate.member.Member;
 import org.springframework.stereotype.Component;
 

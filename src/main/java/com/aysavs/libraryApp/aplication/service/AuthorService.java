@@ -1,13 +1,17 @@
 package com.aysavs.libraryApp.aplication.service;
 
 import com.aysavs.libraryApp.aplication.service.converter.AuthorRequestConverter;
-import com.aysavs.libraryApp.aplication.service.request.CreateAuthorRequest;
+import com.aysavs.libraryApp.aplication.service.request.author.CreateAuthorRequest;
+import com.aysavs.libraryApp.aplication.service.request.author.UpdateAuthorRequest;
 import com.aysavs.libraryApp.aplication.service.validator.CreateAuthorRequestValidator;
 import com.aysavs.libraryApp.domain.aggragate.author.Author;
+import com.aysavs.libraryApp.domain.aggragate.author.AuthorStatus;
 import com.aysavs.libraryApp.infrastructure.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorService {
@@ -35,5 +39,36 @@ public class AuthorService {
         Author savedAuthor = authorRepository.save(author);
 
         return savedAuthor.getId();
+    }
+    public Long update(UpdateAuthorRequest request, Long authorId) {
+        // Yazar kaydını bul
+        Author author = authorRepository.findById(authorId)
+                .orElseThrow(() -> new NotFoundException("Author not found"));
+
+        // İstekten gelen verileri uygula
+        Optional.ofNullable(request.getName()).ifPresent(author::setName);
+        Optional.ofNullable(request.getSurname()).ifPresent(author::setSurname);
+        Optional.ofNullable(request.getGender()).ifPresent(author::setGender);
+        Optional.ofNullable(request.getRace()).ifPresent(author::setRace);
+        Optional.ofNullable(request.getBirthDate()).ifPresent(author::setBirthDate);
+        Optional.ofNullable(request.getDeathDate()).ifPresent(author::setDeathDate);
+
+        // Enum değerini kontrol ederek güncelle
+        Optional.ofNullable(request.getStatus())
+                .map(String::toUpperCase)
+                .map(AuthorStatus::valueOf)
+                .ifPresent(author::setStatus);
+
+        if (request.getWrittenBookCount() >= 0) {
+            author.setWrittenBookCount(request.getWrittenBookCount());
+
+
+            authorRepository.save(author);
+        }
+
+        // Değişiklikleri kaydet
+        authorRepository.save(author);
+
+        return authorId; // Güncellenen yazarın ID'sini döndür
     }
 }

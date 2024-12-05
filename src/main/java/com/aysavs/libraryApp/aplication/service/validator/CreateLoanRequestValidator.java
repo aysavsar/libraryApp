@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.validator;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateLoanRequest;
+import com.aysavs.libraryApp.aplication.service.request.loan.CreateLoanRequest;
 import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;

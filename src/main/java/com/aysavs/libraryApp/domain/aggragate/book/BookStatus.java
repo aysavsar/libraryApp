@@ -9,6 +9,4 @@ public enum BookStatus {
     LOST,
     OUT_OF_USE,
     UNKNOWN;
-
-
 }

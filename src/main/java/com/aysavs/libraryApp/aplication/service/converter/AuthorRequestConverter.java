@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.converter;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateAuthorRequest;
+import com.aysavs.libraryApp.aplication.service.request.author.CreateAuthorRequest;
 import com.aysavs.libraryApp.domain.aggragate.author.Author;
 import org.springframework.stereotype.Component;
 

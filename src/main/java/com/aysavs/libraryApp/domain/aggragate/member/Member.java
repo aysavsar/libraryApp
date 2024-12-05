@@ -19,5 +19,7 @@ public class Member {
     @Column(name="gsmNumber") private long gsmNumber;
     @Column(name="mailAddress") private String mailAddress;
     @Column(name="job") private String job;
-
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private MemberStatus status;
 }

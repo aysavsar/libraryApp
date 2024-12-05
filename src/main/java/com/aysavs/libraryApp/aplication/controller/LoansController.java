@@ -1,8 +1,8 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.LoanService;
-import com.aysavs.libraryApp.aplication.service.request.CreateLoanRequest;
-import com.aysavs.libraryApp.aplication.service.request.CreateMemberRequest;
+import com.aysavs.libraryApp.aplication.service.request.loan.CreateLoanRequest;
+import com.aysavs.libraryApp.aplication.service.request.loan.UpdateLoanRequest;
 import com.aysavs.libraryApp.domain.aggragate.loan.Loan;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -29,4 +29,11 @@ public class LoansController {
         Long createdLoanId = loanService.create(createLoanRequest);
         return ResponseEntity.ok(createdLoanId);
     }
+    @PutMapping("/{loanId}/update")
+    public ResponseEntity<Long> updateLoan(@PathVariable Long loanId,
+                                           @RequestBody UpdateLoanRequest request) {
+        Long updatedLoanId = loanService.update(request, loanId);
+        return ResponseEntity.ok(updatedLoanId);
+    }
+
 }

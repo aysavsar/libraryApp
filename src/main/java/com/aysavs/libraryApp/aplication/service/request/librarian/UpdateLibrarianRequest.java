@@ -1,14 +1,11 @@
-package com.aysavs.libraryApp.aplication.service.request;
-
+package com.aysavs.libraryApp.aplication.service.request.librarian;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 @Getter
 @Setter
-public class CreateMemberRequest {
-
+public class UpdateLibrarianRequest {
     @NotBlank
     private String name;
 
@@ -18,11 +15,6 @@ public class CreateMemberRequest {
     @NotBlank
     private String mailAddress;
 
-    @NotBlank
-    private String job;
-
     private long gsmNumber;
-
-
-
+    private String status;
 }

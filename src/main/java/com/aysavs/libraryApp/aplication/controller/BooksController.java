@@ -1,7 +1,7 @@
 package com.aysavs.libraryApp.aplication.controller;
 
 import com.aysavs.libraryApp.aplication.service.BookService;
-import com.aysavs.libraryApp.aplication.service.request.CreateBookRequest;
+import com.aysavs.libraryApp.aplication.service.request.book.CreateBookRequest;
 import com.aysavs.libraryApp.aplication.service.request.book.UpdateBookRequest;
 import com.aysavs.libraryApp.domain.aggragate.book.Book;
 import jakarta.validation.Valid;

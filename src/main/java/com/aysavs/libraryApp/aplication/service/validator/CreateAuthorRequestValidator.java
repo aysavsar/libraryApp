@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.validator;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateAuthorRequest;
+import com.aysavs.libraryApp.aplication.service.request.author.CreateAuthorRequest;
 import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 

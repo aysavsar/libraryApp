@@ -1,13 +1,11 @@
-package com.aysavs.libraryApp.aplication.service.request;
-
+package com.aysavs.libraryApp.aplication.service.request.member;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateLiberianRequest {
-
+public class UpdateMemberRequest {
     @NotBlank
     private String name;
 
@@ -17,5 +15,10 @@ public class CreateLiberianRequest {
     @NotBlank
     private String mailAddress;
 
+    @NotBlank
+    private String job;
+
     private long gsmNumber;
+
+    private String status;
 }

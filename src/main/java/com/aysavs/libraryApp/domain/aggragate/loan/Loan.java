@@ -20,10 +20,11 @@ public class Loan {
     @Column(name="memberId")private long memberId;
     @Column(name="loanStatus") private String loanStatus;
     @Column(name="loanDate") private Date loanDate;
-    @Column(name="refundDate") private Date refundDate;
+    @Column(name="returnDate") private Date returnDate;
     @Column(name="remainingRight")private int remainingRight;
     @Column(name="loanedBookCount")private int loanedBookCount;
-    @Column(name="isForbidden")private boolean isForbidden;
+    @Column(name = "isForbidden") private boolean isForbidden;
     @Column(name="librarianId")private long librarianId;
+    @Enumerated(EnumType.STRING) @Column(name = "status", nullable = false) private LoanStatus status;
 
 }

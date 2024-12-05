@@ -1,22 +1,22 @@
 package com.aysavs.libraryApp.aplication.service.validator;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateLiberianRequest;
+import com.aysavs.libraryApp.aplication.service.request.librarian.CreateLibrarianRequest; // 'CreateLiberianRequest' yerine 'CreateLibrarianRequest'
 import jakarta.validation.ValidationException;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CreateLiberianRequestValidator {
+public class CreateLibrarianRequestValidator {
 
     private static final int MAX_NAME_LENGTH = 100;
     private static final int MAX_SURNAME_LENGTH = 100;
     private static final int MAX_MAIL_LENGTH = 150;
     private static final int GSM_NUMBER_LENGTH = 10;
 
-    public void validate(CreateLiberianRequest createLiberianRequest) {
-        validateName(createLiberianRequest.getName());
-        validateSurname(createLiberianRequest.getSurname());
-        validateMailAddress(createLiberianRequest.getMailAddress());
-        validateGsmNumber(createLiberianRequest.getGsmNumber());
+    public void validate(CreateLibrarianRequest createLibrarianRequest) {
+        validateName(createLibrarianRequest.getName());
+        validateSurname(createLibrarianRequest.getSurname());
+        validateMailAddress(createLibrarianRequest.getMailAddress());
+        validateGsmNumber(createLibrarianRequest.getGsmNumber());
     }
 
     private void validateName(String name) {

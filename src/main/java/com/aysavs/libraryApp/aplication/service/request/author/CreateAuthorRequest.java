@@ -1,8 +1,7 @@
-package com.aysavs.libraryApp.aplication.service.request;
+package com.aysavs.libraryApp.aplication.service.request.author;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 

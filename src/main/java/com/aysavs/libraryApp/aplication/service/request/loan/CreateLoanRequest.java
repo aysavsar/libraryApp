@@ -1,11 +1,9 @@
-package com.aysavs.libraryApp.aplication.service.request;
+package com.aysavs.libraryApp.aplication.service.request.loan;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -25,7 +23,7 @@ public class CreateLoanRequest {
     private String race;
 
     private Date loanDate;
-    private Date refundDate;
+    private Date returnDate;
 
     private int remainingRight;
 

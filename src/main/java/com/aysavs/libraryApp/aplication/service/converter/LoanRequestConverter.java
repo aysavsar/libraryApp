@@ -1,6 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.converter;
 
-import com.aysavs.libraryApp.aplication.service.request.CreateLoanRequest;
+import com.aysavs.libraryApp.aplication.service.request.loan.CreateLoanRequest;
 import com.aysavs.libraryApp.domain.aggragate.loan.Loan;
 import org.springframework.stereotype.Component;
 
