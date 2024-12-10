@@ -40,6 +40,7 @@ public class AuthorService {
 
         return savedAuthor.getId();
     }
+
     public Long update(UpdateAuthorRequest request, Long authorId) {
         // Yazar kaydını bul
         Author author = authorRepository.findById(authorId)
@@ -62,7 +63,6 @@ public class AuthorService {
         if (request.getWrittenBookCount() >= 0) {
             author.setWrittenBookCount(request.getWrittenBookCount());
 
-
             authorRepository.save(author);
         }
 
@@ -70,5 +70,11 @@ public class AuthorService {
         authorRepository.save(author);
 
         return authorId; // Güncellenen yazarın ID'sini döndür
+    }
+    public void delete(Long authorId) {
+        if (!authorRepository.existsById(authorId)) {
+            throw new NotFoundException("Author with id " + authorId + " not found");
+        }
+        authorRepository.deleteById(authorId);
     }
 }

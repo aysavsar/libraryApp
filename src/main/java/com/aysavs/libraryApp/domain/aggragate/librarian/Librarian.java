@@ -30,5 +30,6 @@ public class Librarian {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private LibrarianStatus status; // 'LibrarianStatus' enumu kullanılacak
+    private LibrarianStatus status = LibrarianStatus.UNKNOWN;
+
 }

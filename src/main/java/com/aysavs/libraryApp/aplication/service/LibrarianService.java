@@ -60,5 +60,10 @@ public class LibrarianService {
 
         return librarianId; // Güncellenen kütüphanecinin ID'sini döndür
     }
-
+    public void delete(Long librarianId) {
+        if (!librarianRepository.existsById(librarianId)) {
+            throw new NotFoundException("Librarian with id " + librarianId + " not found");
+        }
+        librarianRepository.deleteById(librarianId);
+    }
 }

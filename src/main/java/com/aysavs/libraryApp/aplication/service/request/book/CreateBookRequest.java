@@ -1,5 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.request.book;
 
+import com.aysavs.libraryApp.domain.aggragate.book.BookStatus;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -25,8 +26,9 @@ public class CreateBookRequest {
 
     private long authorId;
 
-
     private Date publicationDate;
+
+    private BookStatus status;
 
     @NotBlank
     private String publishingHouse;

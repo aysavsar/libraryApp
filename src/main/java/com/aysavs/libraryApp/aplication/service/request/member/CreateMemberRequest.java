@@ -1,5 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.request.member;
 
+import com.aysavs.libraryApp.domain.aggragate.member.MemberStatus;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,8 @@ public class CreateMemberRequest {
     private String job;
 
     private long gsmNumber;
+
+    private MemberStatus status;
 
 
 

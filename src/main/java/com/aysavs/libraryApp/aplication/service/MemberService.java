@@ -63,4 +63,10 @@ public class MemberService {
 
         return memberId; // Güncellenen üyenin ID'sini döndür
     }
+    public void delete(Long memberId) {
+        if (!memberRepository.existsById(memberId)) {
+            throw new NotFoundException("Member with id " + memberId + " not found");
+        }
+        memberRepository.deleteById(memberId);
+    }
 }

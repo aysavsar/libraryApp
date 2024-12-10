@@ -34,4 +34,9 @@ public class AuthorsController {
         Long updatedAuthorId = authorService.update(request, authorId);
         return ResponseEntity.ok(updatedAuthorId);
     }
+    @DeleteMapping("/{authorId}/delete")
+    public ResponseEntity<Void> deleteAuthor(@PathVariable Long authorId) {
+        authorService.delete(authorId);
+        return ResponseEntity.noContent().build();
+    }
 }

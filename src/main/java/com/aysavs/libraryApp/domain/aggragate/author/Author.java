@@ -41,6 +41,6 @@ public class Author {
     private LocalDate deathDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = true)
     private AuthorStatus status; // Yazarın durumu
 }

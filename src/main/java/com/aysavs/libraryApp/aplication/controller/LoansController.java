@@ -35,5 +35,10 @@ public class LoansController {
         Long updatedLoanId = loanService.update(request, loanId);
         return ResponseEntity.ok(updatedLoanId);
     }
+    @DeleteMapping("/{loanId}/delete")
+    public ResponseEntity<Void> deleteLoan(@PathVariable Long loanId) {
+        loanService.delete(loanId);
+        return ResponseEntity.noContent().build();
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.request.librarian;
 
+import com.aysavs.libraryApp.domain.aggragate.librarian.LibrarianStatus;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,8 @@ public class CreateLibrarianRequest {
 
     @NotBlank
     private String mailAddress;
+
+    private LibrarianStatus status;
 
     private long gsmNumber;
 }

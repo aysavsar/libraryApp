@@ -16,5 +16,6 @@ public class UpdateLibrarianRequest {
     private String mailAddress;
 
     private long gsmNumber;
+
     private String status;
 }

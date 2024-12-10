@@ -12,7 +12,6 @@ public class CreateLoanRequestValidator {
         validateBookId(createLoanRequest.getBookId());
         validateMemberId(createLoanRequest.getMemberId());
         validateLibrarianId(createLoanRequest.getLiberianId());
-        validateLoanStatus(createLoanRequest.getLoanStatus());
         validateRemainingRight(createLoanRequest.getRemainingRight());
         validateLoanedBookCount(createLoanRequest.getLoanedBookCount());
         validateLoanDate(createLoanRequest.getLoanDate());

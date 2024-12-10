@@ -1,5 +1,6 @@
 package com.aysavs.libraryApp.aplication.service.request.author;
 
+import com.aysavs.libraryApp.domain.aggragate.author.AuthorStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
@@ -23,9 +24,13 @@ public class CreateAuthorRequest {
     @NotBlank
     private String race;
 
+    private AuthorStatus status;
+
     private LocalDate birthDate;
     private LocalDate deathDate;
 
     @JsonIgnore
     private int writtenBookCount;
+
+
 }

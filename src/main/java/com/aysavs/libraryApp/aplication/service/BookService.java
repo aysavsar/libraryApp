@@ -8,6 +8,7 @@ import com.aysavs.libraryApp.aplication.service.validator.CreateBookRequestValid
 import com.aysavs.libraryApp.domain.aggragate.book.Book;
 import com.aysavs.libraryApp.domain.aggragate.book.BookStatus;
 import com.aysavs.libraryApp.infrastructure.repository.BookRepository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 
@@ -16,6 +17,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class BookService {
 
     private final BookRepository bookRepository;
@@ -69,9 +71,15 @@ public class BookService {
                 .filter(authorId -> authorId > 0)
                 .ifPresent(retrievedBook::setAuthorId);
 
-        bookRepository.updateBookById(bookId, retrievedBook);
+        bookRepository.save(retrievedBook);
 
         return bookId;
 
+    }
+    public void delete(Long bookId) {
+        if (!bookRepository.existsById(bookId)) {
+            throw new NotFoundException("Book with id " + bookId + " not found");
+        }
+        bookRepository.deleteById(bookId);
     }
 }

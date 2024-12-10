@@ -34,4 +34,9 @@ public class LibrariansController {
         Long updatedLibrarianId = librarianService.update(request, librarianId);
         return ResponseEntity.ok(updatedLibrarianId);
     }
+    @DeleteMapping("/{librarianId}/delete")
+    public ResponseEntity<Void> deleteLibrarian(@PathVariable Long librarianId) {
+        librarianService.delete(librarianId);
+        return ResponseEntity.noContent().build();
+    }
 }

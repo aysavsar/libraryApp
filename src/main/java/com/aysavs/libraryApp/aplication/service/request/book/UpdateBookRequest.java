@@ -19,7 +19,6 @@ public class UpdateBookRequest {
     private Date publicationDate;
     private String publishingHouse;
     private Integer totalBookCount;
-
     @JsonIgnore
     private long bookId;
 }

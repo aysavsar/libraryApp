@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    void updateBookById(long id, Book book); // update book from Book where id = 262
+   // void updateBookById(long id, Book book); // update book from Book where id = 262
 }

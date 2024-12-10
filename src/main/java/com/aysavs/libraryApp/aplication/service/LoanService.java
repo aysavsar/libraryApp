@@ -18,27 +18,29 @@ public class LoanService {
 
     private final LoanRepository loanRepository;
     private final CreateLoanRequestValidator createLoanRequestValidator;
-    private final LoanRequestConverter loanRequestConverter ;
+    private final LoanRequestConverter loanRequestConverter;
 
 
     public LoanService(LoanRepository loanRepository,
                        LoanRequestConverter loanRequestConverter,
                        CreateLoanRequestValidator createLoanRequestValidator) {
         this.loanRepository = loanRepository;
-        this.loanRequestConverter=loanRequestConverter;
-        this.createLoanRequestValidator=createLoanRequestValidator;
+        this.loanRequestConverter = loanRequestConverter;
+        this.createLoanRequestValidator = createLoanRequestValidator;
     }
 
     public List<Loan> getAll() {
         return loanRepository.findAll();
     }
-    public Long create(CreateLoanRequest createLoanRequest ) {
+
+    public Long create(CreateLoanRequest createLoanRequest) {
         createLoanRequestValidator.validate(createLoanRequest);
         Loan loan = loanRequestConverter.convert(createLoanRequest);
-        Loan savedLoan  = loanRepository.save(loan);
+        Loan savedLoan = loanRepository.save(loan);
 
         return savedLoan.getId();
     }
+
     public Long update(UpdateLoanRequest request, Long loanId) {
         Loan loan = loanRepository.findById(loanId)
                 .orElseThrow(() -> new NotFoundException("Loan not found"));
@@ -60,6 +62,12 @@ public class LoanService {
 
         loanRepository.save(loan);
         return loanId; // Güncellenen ödünç alma işleminin ID'sini döndür
+    }
+    public void delete(Long loanId) {
+        if (!loanRepository.existsById(loanId)) {
+            throw new NotFoundException("Loan with id " + loanId + " not found");
+        }
+        loanRepository.deleteById(loanId);
     }
 
 }

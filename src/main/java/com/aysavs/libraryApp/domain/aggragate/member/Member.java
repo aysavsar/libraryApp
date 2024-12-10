@@ -13,13 +13,26 @@ import lombok.*;
 
 public class Member {
     @Id
-    @Column(name="id")  @GeneratedValue(strategy = GenerationType.IDENTITY)private long id;
-    @Column(name="name")private String name;
-    @Column(name="surname")private String surname;
-    @Column(name="gsmNumber") private long gsmNumber;
-    @Column(name="mailAddress") private String mailAddress;
-    @Column(name="job") private String job;
+    @Column(name="id")  @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name="name")
+    private String name;
+
+    @Column(name="surname")
+    private String surname;
+
+    @Column(name="gsmNumber")
+    private long gsmNumber;
+
+    @Column(name="mailAddress")
+    private String mailAddress;
+
+    @Column(name="job")
+    private String job;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private MemberStatus status;
+    @Column(name = "status", nullable = true)
+    private MemberStatus status = MemberStatus.ACTIVE; // Varsayılan değer
+
 }
